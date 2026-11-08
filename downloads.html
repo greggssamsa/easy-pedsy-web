@@ -34,8 +34,8 @@ header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:
 <div class="grid">
 <article class="card"><span class="badge">Android · APK</span><h2>easy-PEDsy 3.1</h2><p>Android telefon ve tabletler için uygulama paketi.</p>
 <div class="actions">
-<a id="apkDownload" class="button button-primary" href="files/easy-PEDsy-3.1.apk" download hidden>Android APK indir</a>
-<div id="apkPending"><span class="button" aria-disabled="true">APK henüz yüklenmedi</span><p id="apkStatus" role="status">APK dosyasının GitHub deposuna yüklenmesi gerekiyor.</p></div>
+<a id="apkDownload" class="button button-primary" href="easy-PEDsy-3.1.apk" download>Android APK indir</a>
+
 </div></article>
 <article class="card"><span class="badge">Web / PWA</span><h2>Web sürümünü indir</h2><p>Bu sitenin HTML, JavaScript ve diğer kaynak dosyalarını ZIP biçiminde indirin. GitHub tarafından otomatik hazırlanır.</p>
 <div class="actions"><a class="button button-primary" href="https://github.com/greggssamsa/easy-pedsy-web/archive/refs/heads/main.zip">Web ZIP indir</a></div>
@@ -49,7 +49,7 @@ header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:
 (function(){
  const b=document.getElementById('themeToggle'),root=document.documentElement;
  b.addEventListener('click',()=>{let next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('tema',next)}catch(e){}});
- fetch('files/easy-PEDsy-3.1.apk',{method:'HEAD',cache:'no-store'}).then(r=>{if(r.ok){document.getElementById('apkPending').hidden=true;document.getElementById('apkDownload').hidden=false;}}).catch(()=>{});
+ 
 })();
 </script>
 </body></html>
