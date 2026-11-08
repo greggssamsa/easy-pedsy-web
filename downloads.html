@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#EDF5FB">
+<meta name="description" content="easy-PEDsy Android APK ve ücretsiz web/PWA sürümü indirme sayfası.">
+<title>İndir | easy-PEDsy</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts/atkinson-hyperlegible.css">
+<script>(function(){try{var t=localStorage.getItem('tema');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<style>
+:root{--bg:#EDF5FB;--surface:#fff;--ink:#12263A;--muted:#4F6578;--line:#CADCEA;--accent:#1A6BA0;--soft:#DCEEFA;--shadow:0 14px 32px -18px #21425d44;color-scheme:light}
+[data-theme=dark]{--bg:#0E1823;--surface:#15222F;--ink:#E4EEF6;--muted:#93A8B9;--line:#283A4B;--accent:#8DCDF0;--soft:#19324A;--shadow:0 12px 36px -18px #0009;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.container{width:min(100% - 32px,1020px);margin:auto}
+header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:800}.brand img{width:42px;height:42px;border-radius:12px}.brand span span{color:var(--accent)}
+.nav{display:flex;gap:10px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;min-height:44px;border-radius:11px;font:inherit;font-size:.96rem;font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.button:hover{border-color:var(--accent)}.button-primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+[data-theme=dark] .button-primary{color:#0B2236}
+.hero{display:flex;align-items:center;gap:22px;padding:28px;margin:26px 0 20px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(130deg,var(--soft),var(--surface));box-shadow:var(--shadow)}
+.hero img{width:92px;height:92px;border-radius:25px;flex:none}.hero h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;margin:0 0 10px}.hero p{margin:0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}.card{display:flex;flex-direction:column;gap:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:22px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;margin:0}.card p{margin:0;color:var(--muted)}.badge{align-self:flex-start;border-radius:999px;padding:6px 12px;background:var(--soft);color:var(--accent);font-size:.87rem;font-weight:700}
+.actions{margin-top:auto;padding-top:8px}.note{border-radius:15px;padding:17px 20px;border:1px solid var(--line);background:var(--surface);margin:22px 0 36px;color:var(--muted)}
+#apkStatus{font-size:.9rem;color:var(--muted)}#apkDownload[hidden],#apkPending[hidden]{display:none}
+@media(max-width:560px){.bar{padding:12px 0;align-items:flex-start}.brand{flex-shrink:0}.hero{align-items:flex-start;gap:14px;padding:20px}.hero img{width:64px;height:64px;border-radius:18px}}
+</style>
+</head><body>
+<header><div class="container bar"><a class="brand" href="./"><img src="logo.svg" alt=""><span>easy-<span>PEDsy</span></span></a><nav class="nav" aria-label="Üst menü"><a class="button" href="./">Ana sayfa</a><button class="button" id="themeToggle" type="button">Tema</button></nav></div></header>
+<main class="container">
+<section class="hero"><img src="logo.svg" alt="easy-PEDsy logosu"><div><h1>Uygulamayı indir</h1><p>easy-PEDsy'yi Android'e yükleyebilir veya web sürümünün kaynak kodlarını indirebilirsiniz.</p></div></section>
+<div class="grid">
+<article class="card"><span class="badge">Android · APK</span><h2>easy-PEDsy 3.1</h2><p>Android telefon ve tabletler için uygulama paketi.</p>
+<div class="actions">
+<a id="apkDownload" class="button button-primary" href="files/easy-PEDsy-3.1.apk" download hidden>Android APK indir</a>
+<div id="apkPending"><span class="button" aria-disabled="true">APK henüz yüklenmedi</span><p id="apkStatus" role="status">APK dosyasının GitHub deposuna yüklenmesi gerekiyor.</p></div>
+</div></article>
+<article class="card"><span class="badge">Web / PWA</span><h2>Web sürümünü indir</h2><p>Bu sitenin HTML, JavaScript ve diğer kaynak dosyalarını ZIP biçiminde indirin. GitHub tarafından otomatik hazırlanır.</p>
+<div class="actions"><a class="button button-primary" href="https://github.com/greggssamsa/easy-pedsy-web/archive/refs/heads/main.zip">Web ZIP indir</a></div>
+</article>
+<article class="card"><span class="badge">Tarayıcı</span><h2>İndirmeden kullan</h2><p>Hesaplayıcıları Android, iPhone veya bilgisayar tarayıcınızdan açın.</p><div class="actions"><a class="button button-primary" href="./">Hesaplayıcıları aç</a></div>
+</article>
+</div>
+<p class="note">Klinik hesaplayıcılar tanı ve tedavi kararlarında yardımcı araçlardır; hekimin değerlendirmesinin yerini tutmaz. Android APK dosyasını yalnızca güvendiğiniz kaynaktan yükleyin.</p>
+</main>
+<script>
+(function(){
+ const b=document.getElementById('themeToggle'),root=document.documentElement;
+ b.addEventListener('click',()=>{let next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('tema',next)}catch(e){}});
+ fetch('files/easy-PEDsy-3.1.apk',{method:'HEAD',cache:'no-store'}).then(r=>{if(r.ok){document.getElementById('apkPending').hidden=true;document.getElementById('apkDownload').hidden=false;}}).catch(()=>{});
+})();
+</script>
+</body></html>
