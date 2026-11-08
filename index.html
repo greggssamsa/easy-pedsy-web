@@ -367,7 +367,13 @@
     });
   }
 </script>
-</head>
+<style>
+.pedsy-download-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 15px;border-radius:10px;background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);text-decoration:none;font-weight:700}
+.pedsy-download-link:hover{opacity:.88}
+.pedsy-download-panel{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:22px 0 26px;padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)}
+.pedsy-download-panel b{display:block;margin-bottom:3px}.pedsy-download-panel p{margin:0;color:var(--muted);font-size:.93rem}
+@media(max-width:580px){.pedsy-download-panel{flex-wrap:wrap}.pedsy-download-link{padding-inline:12px}}
+</style></head>
 <body>
 <a class="skip-link" href="#icerik">İçeriğe geç</a>
 
@@ -375,7 +381,7 @@
   <div class="wrap header-inner">
     <!-- Logo bu dosyanın içine gömülüdür (data:image/svg+xml). -->
     <a class="brand" href="?"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJlYXN5LVBFRHN5Ij4KICA8IS0tIEdlw6dpY2kgbG9nbzoga2VuZGkgbG9nb251enUgaGF6xLFybGF5xLFuY2EgYnUgZG9zeWF5xLEgYXluxLEgYWRsYSAobG9nby5zdmcpIGRlxJ9pxZ90aXJpbi4gLS0+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiM4RENERjAiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjE0IiByPSI1IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIuODUiLz4KICA8dGV4dCB4PSIzMSIgeT0iNDMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSInQXRraW5zb24gSHlwZXJsZWdpYmxlJywgQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzBCMkE0MiIgbGV0dGVyLXNwYWNpbmc9Ii0xIj5lUDwvdGV4dD4KPC9zdmc+Cg==" alt="" width="32" height="32"><span class="brand-name">easy-<span>PEDsy</span></span></a>
-    <nav class="header-actions" aria-label="Site gezinmesi">
+    <nav class="header-actions" aria-label="Site gezinmesi"><a class="pedsy-download-link" href="downloads.html" aria-label="İndir sayfası">↓ <span>İndir</span></a>
       <a class="btn" href="?" aria-label="Ana sayfa" aria-current="page">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg>
         <span class="btn-label">Ana sayfa</span>
@@ -408,7 +414,11 @@
   </div>
   <p class="count" id="count" aria-live="polite"></p>
 
-  <div id="list">
+  <section class="pedsy-download-panel" aria-label="Uygulamayı indir">
+ <div><b>easy-PEDsy'yi indir</b><p>Android uygulaması ve web sürümü için indirme sayfası.</p></div>
+ <a class="pedsy-download-link" href="downloads.html">İndir →</a>
+</section>
+<div id="list">
     <section class="group" aria-label="Enfeksiyon hastalıkları">
       <h2>Enfeksiyon hastalıkları</h2>
       <ul class="cards"><li><a class="card" href="?arac=antibiyotik-doz" data-search="Antibiyotik dozu pediatrik ilaç doz hesaplama antimikrobiyal antifungal antiviral enfeksiyon Amfoterisin B deoksikolat (konvansiyonel) Amphotericin B deoxycholate (conventional) Lipozomal amfoterisin B Liposomal amphotericin B (AmBisome) Amikasin Amikacin (systemic) Ampisilin-sulbaktam Ampicillin and sulbactam Asiklovir Acyclovir (systemic) Doksisiklin Doxycycline Eritromisin Erythromycin (systemic) Flukonazol Fluconazole Gansiklovir Ganciclovir (systemic) Gentamisin Gentamicin (systemic) Kaspofungin Caspofungin Kolistin (kolistimetat) Colistin (colistimethate) Linezolid Linezolid Meropenem Meropenem Oseltamivir Oseltamivir Sefaleksin Cephalexin Sefepim Cefepime Seftazidim Ceftazidime Seftriakson Ceftriaxone Sefuroksim Cefuroxime Siprofloksasin Ciprofloxacin (systemic) Teikoplanin Teicoplanin Tigesiklin Tigecycline Valgansiklovir Valganciclovir Vankomisin Vancomycin Vorikonazol Voriconazole Piperasilin-tazobaktam Sefepim Seftazidim Sefoperazon-sulbaktam Meropenem Vankomisin Teikoplanin Amikasin Metronidazol Eritromisin Seftriakson Amoksisilin-klavulanat Klaritromisin Tigesiklin TMP-SMX (Bactrim) Flukonazol Amfoterisin B (lipozomal) Kaspofungin Mikafungin Vorikonazol Asiklovir Gansiklovir Valgansiklovir"><span class="card-sym" aria-hidden="true">mg</span><span class="card-text"><b>Antibiyotik dozu</b><small>Yaş, kilo ve endikasyona göre antibiyotik, antifungal ve antiviral dozları</small></span><svg class="card-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></li></ul>
@@ -479,6 +489,7 @@
       </button>
     </div>
     <nav aria-label="Ana menü">
+<a class="menu-link" href="downloads.html">↓ İndir · APK ve web</a>
       <a class="btn btn-primary" href="?" aria-current="page">Ana sayfa</a>
 
       <h3>Enfeksiyon hastalıkları</h3>
