@@ -1,8 +1,8 @@
 // easy-PEDsy PWA: yalnızca aynı kaynaktan gelen uygulama dosyaları önbelleğe alınır.
 // Çekirdek hesaplayıcılar index.html içine gömülüdür; ağ olmadan da açılabilir.
-const CACHE_NAME = 'easy-pedsy-pwa-3.1-v1';
+const CACHE_NAME = 'easy-pedsy-pwa-3.1-v2';
 const CORE = [
-  './', './index.html', './start.html', './manifest.webmanifest',
+  './', './index.html', './start.html', './downloads.html', './logo.svg', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png',
   './icons/icon-maskable-192.png', './icons/icon-maskable-512.png',
   './fonts/atkinson-hyperlegible.css',
