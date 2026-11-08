@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web kısayolları – easy-PEDsy</title>
+<link rel="stylesheet" href="fonts/atkinson-hyperlegible.css">
+<script>
+  (function () {
+    var t;
+    try { t = localStorage.getItem('tema'); } catch (e) {}
+    if (t !== 'dark' && t !== 'light') {
+      t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root {
+    --bg: #EDF5FB; --surface: #FFFFFF; --ink: #12263A; --muted: #4F6578; --line: #CADCEA;
+    --accent: #1A6BA0; --accent-ink: #FFFFFF; --accent-soft: #DCEEFA;
+    --brand: #8DCDF0; --brand-ink: #0B2A42;
+    color-scheme: light;
+  }
+  [data-theme="dark"] {
+    --bg: #0E1823; --surface: #15222F; --ink: #E4EEF6; --muted: #93A8B9; --line: #283A4B;
+    --accent: #8DCDF0; --accent-ink: #0B2236; --accent-soft: #19324A;
+    --brand: #8DCDF0; --brand-ink: #0B2236;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font: 17px/1.5 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 22px 16px 40px; }
+  h1 { font-size: 1.5rem; margin: 0 0 14px; letter-spacing: -.01em; }
+  h2 { font-size: 1rem; margin: 26px 0 10px; color: var(--muted); font-weight: 700; }
+  form { display: flex; gap: 8px; }
+  input[type="search"] {
+    flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px;
+  }
+  input[type="search"]:focus { outline: 3px solid var(--accent); outline-offset: 1px; }
+  button {
+    font: inherit; font-weight: 700; border: 0; border-radius: 12px; padding: 0 18px; min-height: 48px;
+    background: var(--accent); color: var(--accent-ink);
+  }
+  .grid { display: grid; gap: 10px; }
+  .card {
+    display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 12px 14px;
+    color: var(--ink); text-decoration: none; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 14px;
+  }
+  .card:active { border-color: var(--accent); }
+  .card b { display: block; font-size: 1.05rem; }
+  .card small { display: block; color: var(--muted); font-size: .88rem; line-height: 1.35; }
+  .badge {
+    flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+    font-weight: 700; font-size: 1.1rem; background: var(--accent-soft); color: var(--accent);
+  }
+  .card.account { margin-top: 14px; border-color: var(--accent); }
+  .badge.brand { background: var(--brand); color: var(--brand-ink); letter-spacing: -1px; }
+  .note {
+    margin-top: 26px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; font-size: .92rem; color: var(--muted);
+  }
+  .note h2 { margin: 0 0 6px; color: var(--ink); }
+  .note ul { margin: 0; padding-left: 18px; }
+  .note li + li { margin-top: 6px; }
+  .note b { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Yeni sekme</h1>
+
+  <form id="ara" role="search" autocomplete="off">
+    <input id="q" type="search" placeholder="Google'da ara veya adres yaz" aria-label="Google'da ara veya adres yaz" enterkeyhint="go">
+    <button type="submit">Git</button>
+  </form>
+
+  <a class="card account" href="index.html">
+    <span class="badge" aria-hidden="true">&#128100;</span>
+    <span><b>Hesaplayıcılara dön</b><small>easy-PEDsy ana sayfasını aç</small></span>
+  </a>
+
+  <h2>Kısayollar</h2>
+  <nav class="grid" aria-label="Kısayollar">
+    <a class="card" href="index.html">
+      <span class="badge brand" aria-hidden="true">eP</span>
+      <span><b>easy-PEDsy</b><small>Pediatri hesaplayıcıları</small></span>
+    </a>
+    <a class="card" href="https://www.uptodate.com/">
+      <span class="badge" aria-hidden="true">U</span>
+      <span><b>UpToDate</b><small>Klinik başvuru kaynağı (giriş gerekebilir)</small></span>
+    </a>
+    <a class="card" href="https://www.drugs.com/">
+      <span class="badge" aria-hidden="true">D</span>
+      <span><b>Drugs.com</b><small>İlaç bilgisi ve etkileşim denetimi</small></span>
+    </a>
+    <a class="card" href="https://pubmed.ncbi.nlm.nih.gov/">
+      <span class="badge" aria-hidden="true">P</span>
+      <span><b>PubMed</b><small>Bilimsel makale araması</small></span>
+    </a>
+    <a class="card" href="https://music.youtube.com/">
+      <span class="badge" aria-hidden="true">♪</span>
+      <span><b>YouTube Music</b><small>Tarayıcıda müzik servisini aç</small></span>
+    </a>
+  </nav>
+
+  <section class="note" aria-labelledby="girisler">
+    <h2 id="girisler">Web sürümü hakkında</h2>
+    <p>Bu sayfa isteğe bağlı hızlı bağlantılar ekranıdır. Hesaplayıcılara dönmek için <a href="index.html">easy-PEDsy ana sayfasını</a> kullanın. Üçüncü taraf siteler yeni bir sekmede açılabilir ve internet bağlantısı gerektirir.</p>
+  </section>
+</main>
+<script>
+  (function () {
+    function toUrl(q) {
+      q = (q || '').trim();
+      if (!q) return null;
+      if (/^https?:\/\//i.test(q)) return q;
+      if (q.indexOf(' ') < 0 && q.indexOf('.') > 0 && q.indexOf('://') < 0) return 'https://' + q;
+      return 'https://www.google.com/search?q=' + encodeURIComponent(q);
+    }
+    document.getElementById('ara').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var u = toUrl(document.getElementById('q').value);
+      if (u) location.href = u;
+    });
+  })();
+</script>
+</body>
+</html>
