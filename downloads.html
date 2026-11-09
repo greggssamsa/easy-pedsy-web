@@ -24,18 +24,27 @@ header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}.card{display:flex;flex-direction:column;gap:14px;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:22px;box-shadow:var(--shadow)}
 .card h2{font-size:1.2rem;margin:0}.card p{margin:0;color:var(--muted)}.badge{align-self:flex-start;border-radius:999px;padding:6px 12px;background:var(--soft);color:var(--accent);font-size:.87rem;font-weight:700}
 .actions{margin-top:auto;padding-top:8px}.note{border-radius:15px;padding:17px 20px;border:1px solid var(--line);background:var(--surface);margin:22px 0 36px;color:var(--muted)}
-#apkStatus{font-size:.9rem;color:var(--muted)}#apkDownload[hidden],#apkPending[hidden]{display:none}
+.status{color:var(--muted);font-size:.9rem;margin-top:6px!important}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.actions .status{flex-basis:100%}.button[hidden]{display:none!important}
 @media(max-width:560px){.bar{padding:12px 0;align-items:flex-start}.brand{flex-shrink:0}.hero{align-items:flex-start;gap:14px;padding:20px}.hero img{width:64px;height:64px;border-radius:18px}}
 </style>
 </head><body>
 <header><div class="container bar"><a class="brand" href="./"><img src="logo.svg" alt=""><span>easy-<span>PEDsy</span></span></a><nav class="nav" aria-label="Üst menü"><a class="button" href="./">Ana sayfa</a><button class="button" id="themeToggle" type="button">Tema</button></nav></div></header>
 <main class="container">
-<section class="hero"><img src="logo.svg" alt="easy-PEDsy logosu"><div><h1>Uygulamayı indir</h1><p>easy-PEDsy'yi Android'e yükleyebilir veya web sürümünün kaynak kodlarını indirebilirsiniz.</p></div></section>
+<section class="hero"><img src="logo.svg" alt="easy-PEDsy logosu"><div><h1>Uygulamayı indir</h1><p>Android 3.2, Windows 3.2.0 ve web/PWA sürümü. Yeni paketler yayımlandığında indirme bağlantıları otomatik etkinleşir.</p></div></section>
 <div class="grid">
-<article class="card"><span class="badge">Android · APK</span><h2>easy-PEDsy 3.1</h2><p>Android telefon ve tabletler için uygulama paketi.</p>
+<article class="card"><span class="badge">Android · APK</span><h2>easy-PEDsy 3.2</h2>
+<p>UpToDate, Drugs.com, PubMed ve serbest tarayıcı eklenmiş Android sürümü.</p>
 <div class="actions">
-<a id="apkDownload" class="button button-primary" href="easy-PEDsy-3.1.apk" download>Android APK indir</a>
-
+<a id="android32" class="button button-primary" href="easy-PEDsy-3.2.apk" download hidden>Android 3.2 APK indir</a>
+<a id="android31" class="button button-primary" href="easy-PEDsy-3.1.apk" download>Önceki sürüm 3.1'i indir</a>
+<p class="status" id="androidStatus" role="status">3.2 APK dosyası GitHub'a yüklenince buradan indirilebilecek.</p>
+</div></article>
+<article class="card"><span class="badge">Windows · 64 bit</span><h2>easy-PEDsy 3.2.0</h2>
+<p>Windows 10/11 için sekmeli masaüstü uygulaması. ZIP arşivini açıp <code>easy-PEDsy/easy-PEDsy.exe</code> dosyasını çalıştırın.</p>
+<div class="actions">
+<a id="windows32" class="button button-primary" href="https://github.com/greggssamsa/easy-pedsy-web/releases/download/v3.2.0/easy-PEDsy-Windows-3.2.0.zip" hidden>Windows 3.2.0 ZIP indir</a>
+<p class="status" id="windowsStatus" role="status">Windows ZIP, GitHub Releases bölümüne yüklendiğinde indirme bağlantısı açılacak.</p>
+<a class="button" href="https://github.com/greggssamsa/easy-pedsy-web/releases" target="_blank" rel="noopener">GitHub sürümlerine bak</a>
 </div></article>
 <article class="card"><span class="badge">Web / PWA</span><h2>Web sürümünü indir</h2><p>Bu sitenin HTML, JavaScript ve diğer kaynak dosyalarını ZIP biçiminde indirin. GitHub tarafından otomatik hazırlanır.</p>
 <div class="actions"><a class="button button-primary" href="https://github.com/greggssamsa/easy-pedsy-web/archive/refs/heads/main.zip">Web ZIP indir</a></div>
@@ -43,13 +52,32 @@ header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:
 <article class="card"><span class="badge">Tarayıcı</span><h2>İndirmeden kullan</h2><p>Hesaplayıcıları Android, iPhone veya bilgisayar tarayıcınızdan açın.</p><div class="actions"><a class="button button-primary" href="./">Hesaplayıcıları aç</a></div>
 </article>
 </div>
-<p class="note">Klinik hesaplayıcılar tanı ve tedavi kararlarında yardımcı araçlardır; hekimin değerlendirmesinin yerini tutmaz. Android APK dosyasını yalnızca güvendiğiniz kaynaktan yükleyin.</p>
+<p class="note">Klinik hesaplayıcılar hekim değerlendirmesinin yerini tutmaz. Android APK kurulumu cihazda izin gerektirebilir. Windows 3.2.0 paketi kod imzası içermediğinden SmartScreen uyarısı gösterebilir; yalnızca güvendiğiniz kaynaktan yükleyin.</p>
 </main>
 <script>
 (function(){
  const b=document.getElementById('themeToggle'),root=document.documentElement;
  b.addEventListener('click',()=>{let next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('tema',next)}catch(e){}});
- 
+ // Web sitesindeki dosya henüz yayınlanmadıysa geçersiz indirme bağlantısı gösterme.
+ fetch('./easy-PEDsy-3.2.apk',{method:'HEAD',cache:'no-store'}).then(r=>{
+  if(r.ok && !((r.headers.get('content-type')||'').includes('text/html'))){
+   document.getElementById('android32').hidden=false;
+   document.getElementById('android31').textContent='Önceki sürüm 3.1';
+   document.getElementById('androidStatus').textContent='3.2 güncel sürümdür.';
+  }
+ }).catch(()=>{});
+ // Windows ZIP >100 MB olduğundan GitHub deposu yerine GitHub Release varlığı aranır.
+ fetch('https://api.github.com/repos/greggssamsa/easy-pedsy-web/releases/tags/v3.2.0',
+      {headers:{Accept:'application/vnd.github+json'}}).then(r=>r.ok?r.json():null).then(data=>{
+  if(!data||!Array.isArray(data.assets))return;
+  const asset=data.assets.find(a=>a.name==='easy-PEDsy-Windows-3.2.0.zip');
+  if(asset && asset.browser_download_url){
+   const link=document.getElementById('windows32');
+   link.href=asset.browser_download_url;
+   link.hidden=false;
+   document.getElementById('windowsStatus').textContent='Windows 3.2.0 hazır.';
+  }
+ }).catch(()=>{});
 })();
 </script>
 </body></html>
