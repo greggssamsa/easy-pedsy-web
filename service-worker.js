@@ -1,6 +1,6 @@
 // easy-PEDsy PWA: yalnızca aynı kaynaktan gelen uygulama dosyaları önbelleğe alınır.
 // Çekirdek hesaplayıcılar index.html içine gömülüdür; ağ olmadan da açılabilir.
-const CACHE_NAME = 'easy-pedsy-pwa-3.1-v2';
+const CACHE_NAME = 'easy-pedsy-pwa-3.2-v1';
 const CORE = [
   './', './index.html', './start.html', './downloads.html', './logo.svg', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png',
@@ -31,11 +31,12 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  // ?arac=... bağlantıları fiziksel dosya değildir; aynı index.html HTML'si içinde çözümlenir.
-  const scopePath = new URL(self.registration.scope).pathname;
-  const appRoute = url.pathname === scopePath || url.pathname === scopePath + 'index.html';
-  if (request.mode === 'navigate' && appRoute) {
-    event.respondWith(fetch(request).catch(() => caches.match('./index.html')));
+  // HTML sayfaları: önce ağdan güncel sürümü kullan, internetsizken önbelleğe dön.
+  // ?arac=... bağlantıları tek index.html içinde çözümlenir.
+  if (request.mode === 'navigate') {
+    event.respondWith(fetch(request).catch(async () =>
+      (await caches.match(request, { ignoreSearch: true })) || (await caches.match('./index.html'))
+    ));
     return;
   }
 
