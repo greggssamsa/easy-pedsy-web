@@ -35,9 +35,9 @@ header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:
 <article class="card"><span class="badge">Android · APK</span><h2>easy-PEDsy 3.2</h2>
 <p>UpToDate, Drugs.com, PubMed ve serbest tarayıcı eklenmiş Android sürümü.</p>
 <div class="actions">
-<a id="android32" class="button button-primary" href="easy-PEDsy-3.2.apk" download hidden>Android 3.2 APK indir</a>
+<a id="android32" class="button button-primary" href="https://github.com/greggssamsa/easy-pedsy-web/releases/download/v3.2.0/easy-PEDsy-3.2.apk" hidden>Android 3.2 APK indir</a>
 <a id="android31" class="button button-primary" href="easy-PEDsy-3.1.apk" download>Önceki sürüm 3.1'i indir</a>
-<p class="status" id="androidStatus" role="status">3.2 APK dosyası GitHub'a yüklenince buradan indirilebilecek.</p>
+<p class="status" id="androidStatus" role="status">3.2 APK dosyası GitHub Releases'e eklendiğinde bu düğme etkinleşir.</p>
 </div></article>
 <article class="card"><span class="badge">Windows · 64 bit</span><h2>easy-PEDsy 3.2.0</h2>
 <p>Windows 10/11 için sekmeli masaüstü uygulaması. ZIP arşivini açıp <code>easy-PEDsy/easy-PEDsy.exe</code> dosyasını çalıştırın.</p>
@@ -58,19 +58,19 @@ header{border-bottom:1px solid var(--line);background:var(--bg)}.bar{min-height:
 (function(){
  const b=document.getElementById('themeToggle'),root=document.documentElement;
  b.addEventListener('click',()=>{let next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('tema',next)}catch(e){}});
- // Web sitesindeki dosya henüz yayınlanmadıysa geçersiz indirme bağlantısı gösterme.
- fetch('./easy-PEDsy-3.2.apk',{method:'HEAD',cache:'no-store'}).then(r=>{
-  if(r.ok && !((r.headers.get('content-type')||'').includes('text/html'))){
-   document.getElementById('android32').hidden=false;
-   document.getElementById('android31').textContent='Önceki sürüm 3.1';
-   document.getElementById('androidStatus').textContent='3.2 güncel sürümdür.';
-  }
- }).catch(()=>{});
  // Windows ZIP >100 MB olduğundan GitHub deposu yerine GitHub Release varlığı aranır.
  fetch('https://api.github.com/repos/greggssamsa/easy-pedsy-web/releases/tags/v3.2.0',
       {headers:{Accept:'application/vnd.github+json'}}).then(r=>r.ok?r.json():null).then(data=>{
   if(!data||!Array.isArray(data.assets))return;
-  const asset=data.assets.find(a=>a.name==='easy-PEDsy-Windows-3.2.0.zip');
+  const apkAsset=data.assets.find(a=>a.name==='easy-PEDsy-3.2.apk' && a.state==='uploaded');
+  if(apkAsset && apkAsset.browser_download_url){
+   const apk=document.getElementById('android32');
+   apk.href=apkAsset.browser_download_url;
+   apk.hidden=false;
+   document.getElementById('android31').textContent='Önceki sürüm 3.1';
+   document.getElementById('androidStatus').textContent='Android 3.2 güncel sürümdür.';
+  }
+  const asset=data.assets.find(a=>a.name==='easy-PEDsy-Windows-3.2.0.zip' && a.state==='uploaded');
   if(asset && asset.browser_download_url){
    const link=document.getElementById('windows32');
    link.href=asset.browser_download_url;
